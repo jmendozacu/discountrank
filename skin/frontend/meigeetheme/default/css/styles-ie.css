@@ -1,0 +1,293 @@
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_blank
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/* IE 6 only */
+* html .validation-advice { height:13px; }
+* html .error-msg,
+* html .success-msg,
+* html .note-msg,
+* html .notice-msg { height:24px; }
+.block li.item,
+.block-poll li,
+.opc li.section { vertical-align:top; }
+* html .window-overlay {}
+
+/* Doubled Margin Fixes */
+.product-view .product-img-box .more-views li,
+.product-view .box-tags .form-add .input-box,
+.sp-methods select.month { display:inline; }
+
+/********** < Navigation styles */
+#nav li,
+#nav li a { zoom:1; }
+#nav li { vertical-align:top; }
+/********** < Navigation styles */
+
+select { margin-bottom:1px; }
+input.radio { width:13px; height:13px; }
+input.checkbox { width:13px; height:13px; }
+button.button {}
+button.button span { position:relative; }
+button.btn-checkout {}
+.form-list label { position:relative; z-index:0; }
+.form-list label.required em { position:absolute; top:0; right:-8px; }
+
+/*table { scrollbar-face-color:expression(runtimeStyle.scrollbarFaceColor = '#fff', cellSpacing = 0); }*/ /* Cellspacing fix for IE6-7 */
+
+.tool-tip .btn-close a { margin:0; }
+
+.product-view .product-img-box .zoom.disabled { filter:alpha(opacity=30); }
+
+/* Clearer */
+.clearer { display:block; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
+
+/* Clears and hasLayout fixes */
+.header-container,
+.header-container .top-container,
+.header,
+.header .quick-access,
+#nav,
+.main,
+.footer,
+.footer-container .bottom-container,
+.col-main,
+.col2-set,
+.col3-set,
+.col4-set,
+.messages li,
+.search-autocomplete li,
+.block,
+.block .block-content,
+.block .actions,
+.block li.item,
+.block-poll li,
+.block-poll .label,
+.block-layered-nav .currently li,
+.block-account .block-content li a,
+.mini-products-list .product-details,
+.page-title,
+.rss-title h1,
+.products-grid,
+.products-list li.item,
+.box-account .box-head,
+.dashboard .box .box-title,
+.box-reviews li.item,
+.box-tags li.item,
+.pager,
+.sorter,
+.ratings,
+.add-to-box,
+.add-to-cart,
+.product-essential,
+.product-collateral,
+.product-view .product-img-box .more-views ul,
+.product-view .product-shop .short-description,
+.product-view .box-description,
+.product-view .box-tags .form-add,
+.product-options .options-list li,
+.product-options-bottom,
+.truncated,
+.truncated .truncated_full_value,
+.product-review,
+.cart,
+.cart-collaterals,
+.cart .crosssell li.item,
+.cart .discount,
+.opc .step-title,
+.opc .step,
+.multiple-checkout,
+.sp-methods,
+.checkout-progress,
+.multiple-checkout .place-order,
+.form-list li,
+.form-list .field,
+.group-select li,
+.buttons-set,
+.page-print .print-head,
+.cart-tax-total,
+.advanced-search-summary,
+.advanced-search-summary p,
+.gift-messages-form .item,
+.send-friend .form-list li p,
+.centinel .authentication { zoom:1; }
+
+/* Hover Fix */
+iframe.hover-fix { position:absolute; left:-1px; top:-1px; z-index:-1; background:transparent; filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0); }
+
+/* Sorter */
+.sorter .view-mode .list{margin-top:-18px;}
+
+
+header#header .links li:hover{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);   
+    zoom: 1;    
+}
+
+#nav > li.over,
+#nav > li.active{
+    border-bottom:none;
+    padding-bottom:2px;
+    background:url(../images/ie/ie_menu_border.png) left bottom repeat-x;
+}
+
+#nav > li.over > a,
+#nav > li.active > a{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    zoom: 1;
+}
+
+#nav > li{margin:0 0 -2px;}
+
+.product-view .product-prev span,
+.product-view .product-next span,
+.product-essential .product-image .bx-prev span,
+.product-essential .product-image .bx-next span{
+    background:url(../images/more_views_arr.png) left top no-repeat;
+    width:100%;
+    height:100%;
+    display:block;
+}
+.product-view .product-prev span,
+.product-essential .product-image .bx-prev span {   
+    background-position: 15px 13px;
+}
+.product-view .product-next span,
+.product-essential .product-image .bx-next span { 
+    background-position: -56px 13px;
+}
+
+.product-view .product-prev,
+.product-view .product-next,
+.product-essential .product-image .bx-prev,
+.product-essential .product-image .bx-next{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    zoom: 1;
+}
+
+.product-view .product-prev:hover,
+.product-view .product-next:hover,
+.product-essential .product-image .bx-prev:hover,
+.product-essential .product-image .bx-next:hover{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B32982a3,endColorstr=#B32982a3)!important;
+}
+
+
+
+.home-slider-conainer .bx-prev span,
+.home-slider-conainer .bx-next span,
+.block-related .bx-prev span,
+.block-related .bx-next span{
+    background:url(../images/more_views_arr.png) left top no-repeat;
+    width:100%;
+    height:100%;
+    display:block;
+}
+.home-slider-conainer .bx-prev span,
+.block-related .bx-prev span {   
+    background-position: 15px 13px;
+}
+.home-slider-conainer .bx-next span,
+.block-related .bx-next span { 
+    background-position: -56px 13px;
+}
+.home-slider-conainer .bx-prev,
+.home-slider-conainer .bx-next,
+.block-related .bx-prev,
+.block-related .bx-next{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    zoom: 1;
+}
+
+.home-slider-conainer .bx-prev:hover,
+.home-slider-conainer .bx-next:hover,
+.block-related .bx-prev:hover,
+.block-related .bx-next:hover{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B32982a3,endColorstr=#B32982a3)!important;
+}
+
+
+.cs-prev span,
+.cs-next span{
+    background:url(../images/cs_buttons.png) left top no-repeat;
+    width:100%;
+    height:100%;
+    display:block;
+}
+.cs-prev span {   
+    background-position: 19px 16px;
+}
+.cs-next span { 
+    background-position: -41px 16px;
+}
+.cs-prev, 
+.cs-next{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#33fffefe,endColorstr=#33fffefe);
+    zoom: 1;
+}
+
+.cs-prev:hover,
+.cs-next:hover{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B32982a3,endColorstr=#B32982a3)!important;
+}
+
+.add-to-cart button.button > span{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#12000000,endColorstr=#12000000);
+    zoom: 1;
+}
+
+
+.cms-home header#header .header-wrapper{padding-bottom:40px;}
+.cs-buttons{bottom:-40px;}
+.cs-buttons .inner{padding-bottom:0;}
+
+/* IE fix */
+header,
+header .header-wrapper,
+header .container_12{z-index: 9;}
+header .grid_12{z-index: 6;}
+header .quick-access{z-index:8;}
+header .top-cart{z-index: 8;}
+#topCartContent{z-index: 8;}
+
+header nav{z-index:6;}
+#nav{z-index: 6;}
+
+
+.nav-wide#nav ul.level0 > li > a > span{border-bottom:none; padding-bottom:11px;}
+.nav-wide#nav ul.level0 > li > a{border-bottom:none; background:url(../images/ie/ie_menu_border_bg.png) left bottom repeat-x;}
+
+#footer .footer-block{border:none;}
+#footer .footer-bottom-block{border:none; padding-top:11px; background:url(../images/ie/ie_menu_border_bg.png) left top repeat-x;}
+
+.product-view .product-shop .product-box{border:1px solid #000; border-left:none; border-right:none;}
+
+span.button span span span span span,
+button.button span span span span span{border-top:none; padding-top:4px; background:url(../images/ie/ie_button_top_border.png) left top repeat-x;}

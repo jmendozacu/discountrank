@@ -1,0 +1,176 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     meigeetheme_default
+ * @copyright   Copyright (c) 2012 MeigeeTeam. (http://www.meigeeteam.com)
+ */
+?>
+<?php 
+/*****/
+$appearance = MAGE::helper('ThemeOptions')->getThemeOptions('appearance');
+/*****/
+?>
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<title><?php echo $this->getTitle() ?></title>
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.easing.js'); ?>"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+
+<!-- Font Replacement -->
+<?php if ($appearance['font'] == 2): ?>
+<link href='http://fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $appearance['gfont']); ?>:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+<?php endif; ?>
+<!-- End Font Replacement -->
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
+
+<!-- Font Replacement -->
+<?php if ($appearance['font'] == 2): ?>
+<?php if ($appearance['default_sizes'] == 0): ?>
+<style>
+.product-name a, .main-container .price, header#header .top-cart .block-content .cart-title, header#header .top-cart .mini-products-list li, header#header .top-cart .block-content .actions .subtotal, #nav > li > a, .nav-wide#nav ul.level0 > li > a > span, #footer .footer-wrapper h3, #footer .footer-top-blocks-wrapper h3, aside.sidebar section header h2, aside.sidebar section.block-wishlist li.item .product-details .product-name a, .product-view .product-shop .product-name h1, .add-to-box .add-to-cart label, .product-collateral h2, .meigee-tabs a, .block-related header h2, .page-title h1, .page-title h2, .opc .step-title .number, .opc .step-title h2, .cs-title h2{ font-family: '<?php echo $appearance['gfont']; ?>', sans-serif; font-size:<?php echo $appearance['fontsize']; ?>px !important; line-height: <?php echo $appearance['fontsize']; ?>px !important; font-weight: <?php echo $appearance['fontweight']; ?> !important; }
+</style>
+<?php else: ?>
+<style>
+.product-name a, .main-container  .price, header#header .top-cart .block-content .cart-title, header#header .top-cart .mini-products-list li, header#header .top-cart .block-content .actions .subtotal, #nav > li > a, .nav-wide#nav ul.level0 > li > a > span, #footer .footer-wrapper h3, #footer .footer-top-blocks-wrapper h3, aside.sidebar section header h2, aside.sidebar section.block-wishlist li.item .product-details .product-name a, .product-view .product-shop .product-name h1, .add-to-box .add-to-cart label, .product-collateral h2, .meigee-tabs a, .block-related header h2, .page-title h1, .page-title h2, .opc .step-title .number, .opc .step-title h2, .cs-title h2{ font-family: '<?php echo $appearance['gfont']; ?>', sans-serif; font-weight: 400; }
+</style>
+<?php endif; ?>
+<?php endif; ?>
+<!-- End Font Replacement -->
+
+<?php if ($appearance['customcolors'] == 1): ?>
+<!-- Theme Colors -->
+
+<?php
+    function HexToRGB($hex) {
+	    $hex = ereg_replace("#", "", $hex);
+	    $color = '';
+	    
+	    if(strlen($hex) == 3) {
+		    $color .= hexdec(substr($hex, 0, 1) . $r) . ',';
+		    $color .= hexdec(substr($hex, 1, 1) . $g) . ',';
+		    $color .= hexdec(substr($hex, 2, 1) . $b);
+	    }
+	    else if(strlen($hex) == 6) {
+		    $color .= hexdec(substr($hex, 0, 2)) . ',';
+		    $color .= hexdec(substr($hex, 2, 2)) . ',';
+		    $color .= hexdec(substr($hex, 4, 2));
+	    }
+	    
+	    return $color;
+    }
+?>
+
+<style>
+	/*  Site Background */
+	.site-wrapper {
+	    background-color: #<?php echo $appearance['sitebg']; ?>;
+	}
+	
+	
+	 /* Skin Color #1 */	
+	a:hover,
+	header#header .top-cart .block-content .to-cart,
+	header#header .top-cart .product-name a:hover,
+	.cart-empty,
+	aside.sidebar section .block-content a:hover,
+	aside.sidebar section .block-content .actions a,
+	aside.sidebar section.block-wishlist li.item .product-details .product-name a:hover,
+	.add-to-links li a,
+	.add-to-links .separator,
+	.ratings .rating-links a,
+	.ratings .rating-links .separator,
+	nav.breadcrumbs li strong,
+	nav.breadcrumbs li a:hover{color:#<?php echo $appearance['maincolor']; ?>;}
+	
+	body,
+	span.button span span,
+	button.button span span,
+	.sidebar button.button:hover span,
+	header#header .top-header-wrapper,
+	#nav ul,
+	#nav div,
+	aside.sidebar section.even header,
+	.opc .active .step-title,
+	.cs-buttons a:hover,
+	.cs-buttons a.cs-active,
+	#footer .footer-wrapper-container,
+	#footer .footer-wrapper,
+	#nav,
+	.meigee-tabs,
+	#cart-accordion h3.accordion-title{background-color:#<?php echo $appearance['maincolor']; ?>;}
+	
+	.opc .step{border-top-color:#<?php echo $appearance['maincolor']; ?>;}
+	
+	.product-view .product-prev:hover,
+	.product-view .product-next:hover,
+	.product-essential .product-image .bx-prev:hover,
+	.product-essential .product-image .bx-next:hover,
+	.block-related .bx-prev:hover,
+	.block-related .bx-next:hover,
+	.cs-prev:hover,
+	.cs-next:hover,
+	.home-slider-conainer .bx-prev:hover,
+	.home-slider-conainer .bx-next:hover{
+	    background-color: rgba(<?php echo HexToRGB($appearance['maincolor']); ?>, 0.7);
+	}
+	
+
+	 /* Skin Color #2 */	
+	a,
+	.product-name a,
+	.price,
+	header#header .welcome-msg,
+	header#header .top-cart .block-title.active .title-cart-box a#cartHeader strong.amount,
+	header#header .top-cart .block-title.active .title-cart-box a#cartHeader span.title-cart,
+	header#header .top-cart .block-title.active .title-cart-box a#cartHeader .price,
+	header#header .top-cart .block-content .cart-title,
+	header#header .top-cart .block-content .to-cart:hover,
+	header#header .top-cart .product-name a,
+	header#header .top-cart .mini-products-list li,
+	header#header .top-cart .mini-products-list .price,
+	#footer .footer-top-blocks-wrapper h3,
+	aside.sidebar section.block-wishlist li.item .product-details .product-name a,
+	.tier-prices{ color: #<?php echo $appearance['secondcolor']; ?>;}
+	
+	.sbOptions,
+	aside.sidebar section header{ background-color: #<?php echo $appearance['secondcolor']; ?>;}    
+	
+	aside.sidebar section .block-content { border-color: #<?php echo $appearance['secondcolor']; ?>;}
+	
+	/* Skin Color #3 */
+	.sidebar button.button span,
+	.opc .step-title,
+	.cs-buttons .inner,
+	.cms-home .main-container,
+	.blocks-wrapper{ background-color: #<?php echo $appearance['thirdcolor']; ?>;}
+	
+	.sbOptions a:hover{ color: #<?php echo $appearance['thirdcolor']; ?>;}
+	
+	.meigee-tabs-content,
+	.opc .step,
+	.meigee-tabs li{ border-color: #<?php echo $appearance['thirdcolor']; ?>;}
+	
+	
+	
+</style>
+
+<!-- Theme Colors -->
+<?php endif; ?>

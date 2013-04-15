@@ -1,0 +1,58 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     meigeetheme_default
+ * @copyright   Copyright (c) 2012 MeigeeTeam. (http://www.meigeeteam.com)
+ */
+?>
+<footer id="footer">    
+    <?php // Predefined Static Block
+    if ($static_html = $this->getChildHtml('custom_footer')):
+        echo '<div class="footer-slider-wrapper"><div class="container_12"><div class="grid_12" id="footer-slider">'.$static_html.'</div><div class="clear"></div></div></div>';
+    endif; ?>     
+    <div class="footer-top-blocks-wrapper">
+        <div class="container_12">
+            <div class="grid_12">               
+                <?php echo $this->getChildHtml('custom_footer_2') ?>
+                <div class="grid_3">
+                    <?php echo $this->getChildHtml('footer.newsletter') ?>
+                    <?php echo $this->getChildHtml('custom_footer_3') ?>
+                </div>                
+                <?php echo $this->getChildHtml('custom_footer_4') ?>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="footer-wrapper-container">
+        <div class="footer-wrapper">
+            <div class="footer-block">
+                <div class="container_12">
+                    <div class="grid_12">
+                        <?php echo $this->getChildHtml('custom_footer_5') ?>
+                        <div class="grid_3">
+                            <h3>Footer Links</h3>
+                            <?php echo $this->getChildHtml('cms_footer_links') ?>
+                            <?php echo $this->getChildHtml('footer_links') ?>
+                        </div>                    
+                        <?php echo $this->getChildHtml('custom_footer_6') ?>
+                    </div>
+                    <div class="clear"></div>
+                </div>  
+            </div>
+            <div class="footer-bottom-block">
+                <div class="container_12">
+                    <div class="grid_12">
+                        <div class="address"><?php echo $this->getCopyright() ?></div>
+                        <?php echo $this->__('All Rights Reserved.') ?>
+                        <div class="clear"></div>
+                        <?php echo $this->getChildHtml('store_switcher') ?>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

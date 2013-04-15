@@ -1,0 +1,306 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     meigeetheme_default
+ * @copyright   Copyright (c) 2012 MeigeeTeam. (http://www.meigeeteam.com)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+    $fancybox = MAGE::helper('ThemeOptions')->getThemeOptions('fancybox' );
+    $grid = MAGE::helper('ThemeOptions')->getThemeOptions('grid' );
+?>
+<?php if(!$_productCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+<?php else: ?>
+<section class="category-products">
+    <?php echo $this->getToolbarHtml() ?>
+    <?php // List mode ?>
+    <?php if($this->getMode()!='grid'): ?>
+    <?php $_iterator = 0; ?>
+    <ol class="products-list" id="products-list">
+    <?php foreach ($_productCollection as $_product): ?>
+        <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
+            <?php /* Label New */ echo MAGE::helper('ThemeOptions')->getProductNewLabel($_product); ?>
+            <?php // Product Image ?>
+            <div class="grid_3 alpha omega">
+                <div class="product-image-box">
+                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(191, null); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /><?php /* Hover Image */ echo MAGE::helper('ThemeOptions')->getHoverImage($_product, 191); ?></a>
+                    <?php // Fancybox
+                    if ($fancybox['fancybox_status'] && $fancybox['fancybox_listing'] == 1): ?>
+                        <a class="fancybox category-gallery" title="<?php echo $_productNameStripped; ?>" href="<?php echo $this->helper('catalog/image')->init($_product, 'small_image'); ?>">&nbsp;</a>
+                    <?php endif; // End Fancybox ?>
+                    <?php if($_product->getRatingSummary()): ?>
+                    <?php echo $this->getReviewsSummaryHtml($_product) ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <?php // Product description ?>
+            <div class="grid_6 alpha omega">                
+                <div class="grid_4 alpha">
+                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>                    
+                    <div class="desc std">
+                        <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
+                    </div>
+                    <ul class="add-to-links">
+                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                            <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                        <?php endif; ?>
+                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                            <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+                <div class="grid_2 omega">
+                    <?php echo $this->getPriceHtml($_product, true) ?>
+                    <?php if($_product->isSaleable()): ?>
+                        <p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </li>
+    <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+    <?php else: ?>
+
+    <?php // Grid Mode ?>
+
+    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+
+
+    <?php if ($grid == 'grid_large'): //////// Grid Large ?>
+
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+        <?php if ($i++%2==0): ?>
+        <ul class="products-grid large-grid">
+        <?php endif ?>
+            <li class="item<?php if(($i-1)%2==0): ?> first alpha<?php elseif($i%2==0): ?> last omega<?php endif; ?>">                                
+                <div class="grid-indent">                
+                    <div class="product-box">
+                        <?php /* Label New */ echo MAGE::helper('ThemeOptions')->getProductNewLabel($_product); ?>
+                        <div class="product-img-box">
+                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(295, null); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /><?php /* Hover Image */ echo MAGE::helper('ThemeOptions')->getHoverImage($_product, 295); ?></a>
+                            <?php  // Fancybox
+                            if ($fancybox['fancybox_status'] && $fancybox['fancybox_listing'] == 1): ?>
+                                    <a class="fancybox category-gallery" title="<?php echo $_productNameStripped; ?>" href="<?php echo $this->helper('catalog/image')->init($_product, 'small_image'); ?>">&nbsp;</a>
+                                <?php endif;
+                            // End Fancybox ?>
+                        </div>                
+                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                        <?php if($_product->getRatingSummary()): ?>
+                        <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                        <?php endif; ?>
+                        <?php echo $this->getPriceHtml($_product, true) ?>
+                        <div class="actions">
+                            <?php if($_product->isSaleable()): ?>
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                            <?php else: ?>
+                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                            <?php endif; ?>
+                            <ul class="add-to-links">
+                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                    <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                                <?php endif; ?>
+                                <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                    <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>                        
+                    </div>
+                </div>
+            </li>
+        <?php if ($i%2==0 || $i==$_collectionSize): ?>
+        </ul>
+        <div class="clear"></div>
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+        <script type="text/javascript">            
+            jQuery(window).load(function() {
+                var grids = $$('.products-grid');                
+                grids.each(function(n){                 
+                    var columns = n.select('li.item');                  
+                    var max_height = 0;                                                         
+                    columns.each(function(m){                                                       
+                        if( m.getHeight() >  max_height ){
+                            max_height = m.getHeight();
+                        }                       
+                    });
+                    var boxes = n.select('li .product-box');
+                    boxes.each(function(b){         
+                        var this_column = b.up('li.item');
+                        var box_indent = this_column.getHeight() - b.getHeight();                        
+                        b.setStyle({
+                            height: max_height - box_indent + 'px'
+                        });                 
+                     });
+                });                
+             });
+        </script>
+
+    <?php elseif ($grid == 'grid_standard'): //////// Standard Grid ?>
+
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+        <ul class="products-grid">
+        <?php endif ?>
+            <li class="grid_3 item<?php if(($i-1)%$_columnCount==0): ?> first alpha<?php elseif($i%$_columnCount==0): ?> last omega<?php endif; ?>">                                
+                <div class="grid-indent">                
+                    <div class="product-box">
+                        <?php /* Label New */ echo MAGE::helper('ThemeOptions')->getProductNewLabel($_product); ?>
+                        <div class="product-img-box">
+                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(191, null); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /><?php /* Hover Image */ echo MAGE::helper('ThemeOptions')->getHoverImage($_product, 191); ?></a>
+                            <?php  // Fancybox
+                            if ($fancybox['fancybox_status'] && $fancybox['fancybox_listing'] == 1): ?>
+                                    <a class="fancybox category-gallery" title="<?php echo $_productNameStripped; ?>" href="<?php echo $this->helper('catalog/image')->init($_product, 'small_image'); ?>">&nbsp;</a>
+                                <?php endif;
+                            // End Fancybox ?>
+                        </div>                
+                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                        <?php if($_product->getRatingSummary()): ?>
+                        <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                        <?php endif; ?>
+                        <?php echo $this->getPriceHtml($_product, true) ?>
+                        <div class="actions">
+                            <?php if($_product->isSaleable()): ?>
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                            <?php else: ?>
+                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                            <?php endif; ?>
+                            <ul class="add-to-links">
+                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                    <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                                <?php endif; ?>
+                                <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                    <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>                        
+                    </div>
+                </div>
+            </li>
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+        </ul>
+        <div class="clear"></div>
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+        <script type="text/javascript">            
+            jQuery(window).load(function() {
+                var grids = $$('.products-grid');                
+                grids.each(function(n){					
+                    var columns = n.select('li.item');					
+                    var max_height = 0;															
+                    columns.each(function(m){														
+                        if( m.getHeight() >  max_height ){
+                            max_height = m.getHeight();
+                        }						
+                    });
+                    var boxes = n.select('li .product-box');
+                    boxes.each(function(b){			
+                        var this_column = b.up('li.item');
+                        var box_indent = this_column.getHeight() - b.getHeight();                        
+                        b.setStyle({
+                            height: max_height - box_indent + 'px'
+                        });					
+                     });
+                });                
+             });
+        </script>
+    <?php elseif ($grid == 'grid_small'): ?>
+
+    <?php $i=0; foreach ($_productCollection as $_product): ?>
+        <?php if ($i++%4==0): ?>
+        <ul class="products-grid small-grid">
+        <?php endif ?>
+            <li class="item<?php if(($i-1)%4==0): ?> first alpha<?php elseif($i%4==0): ?> last omega<?php endif; ?>">                                
+                <div class="grid-indent">                
+                    <div class="product-box">
+                        <?php /* Label New */ echo MAGE::helper('ThemeOptions')->getProductNewLabel($_product); ?>
+                        <div class="product-img-box">
+                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(TRUE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(135, null); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /><?php /* Hover Image */ echo MAGE::helper('ThemeOptions')->getHoverImage($_product, 135); ?></a>
+                            <?php  // Fancybox
+                            if ($fancybox['fancybox_status'] && $fancybox['fancybox_listing'] == 1): ?>
+                                    <a class="fancybox category-gallery" title="<?php echo $_productNameStripped; ?>" href="<?php echo $this->helper('catalog/image')->init($_product, 'small_image'); ?>">&nbsp;</a>
+                                <?php endif;
+                            // End Fancybox ?>
+                        </div>                
+                        <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                        <?php if($_product->getRatingSummary()): ?>
+                        <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                        <?php endif; ?>
+                        <?php echo $this->getPriceHtml($_product, true) ?>
+                        <div class="actions">
+                            <?php if($_product->isSaleable()): ?>
+                                <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                            <?php else: ?>
+                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                            <?php endif; ?>
+                            <ul class="add-to-links">
+                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                    <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+                                <?php endif; ?>
+                                <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                    <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>                        
+                    </div>
+                </div>
+            </li>
+        <?php if ($i%4==0 || $i==$_collectionSize): ?>
+        </ul>
+        <div class="clear"></div>
+        <?php endif ?>
+        <?php endforeach ?>
+        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+        <script type="text/javascript">            
+            jQuery(window).load(function() {
+                var grids = $$('.products-grid');                
+                grids.each(function(n){					
+                    var columns = n.select('li.item');					
+                    var max_height = 0;															
+                    columns.each(function(m){														
+                        if( m.getHeight() >  max_height ){
+                            max_height = m.getHeight();
+                        }						
+                    });
+                    var boxes = n.select('li .product-box');
+                    boxes.each(function(b){			
+                        var this_column = b.up('li.item');
+                        var box_indent = this_column.getHeight() - b.getHeight();                        
+                        b.setStyle({
+                            height: max_height - box_indent + 'px'
+                        });					
+                     });
+                });                
+             });
+        </script>
+    <?php endif; ///////////// Grid ?>
+
+
+    <?php endif; ?>
+
+    <div class="toolbar-bottom">
+        <?php echo $this->getToolbarHtml() ?>
+    </div>
+</section>
+<?php endif; ?>

@@ -1,0 +1,164 @@
+/* IE 8 only */
+
+header#header .links li:hover{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    zoom: 1;
+}
+
+#nav > li.over,
+#nav > li.active{
+    border-bottom:none;
+    padding-bottom:2px;
+    background:url(../images/ie/ie_menu_border.png) left bottom repeat-x;
+}
+
+#nav > li.over > a,
+#nav > li.active > a{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    zoom: 1;
+}
+
+#nav > li{margin:0 0 -2px;}
+
+.product-view .product-prev span,
+.product-view .product-next span,
+.product-essential .product-image .bx-prev span,
+.product-essential .product-image .bx-next span{
+    background:url(../images/more_views_arr.png) left top no-repeat;
+    width:100%;
+    height:100%;
+    display:block;
+}
+.product-view .product-prev span,
+.product-essential .product-image .bx-prev span {   
+    background-position: 15px 13px;
+}
+.product-view .product-next span,
+.product-essential .product-image .bx-next span { 
+    background-position: -56px 13px;
+}
+
+.product-view .product-prev,
+.product-view .product-next,
+.product-essential .product-image .bx-prev,
+.product-essential .product-image .bx-next{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    zoom: 1;
+}
+
+.product-view .product-prev:hover,
+.product-view .product-next:hover,
+.product-essential .product-image .bx-prev:hover,
+.product-essential .product-image .bx-next:hover{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B32982a3,endColorstr=#B32982a3)!important;
+}
+
+
+
+.block-related .bx-prev span,
+.block-related .bx-next span{
+    background:url(../images/more_views_arr.png) left top no-repeat;
+    width:100%;
+    height:100%;
+    display:block;
+}
+.block-related .bx-prev span {   
+    background-position: 15px 13px;
+}
+.block-related .bx-next span { 
+    background-position: -56px 13px;
+}
+.block-related .bx-prev,
+.block-related .bx-next{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    zoom: 1;
+}
+
+.block-related .bx-prev:hover,
+.block-related .bx-next:hover{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B32982a3,endColorstr=#B32982a3)!important;
+}
+
+
+.cs-prev span,
+.cs-next span{
+    background:url(../images/cs_buttons.png) left top no-repeat;
+    width:100%;
+    height:100%;
+    display:block;
+}
+.cs-prev span {   
+    background-position: 19px 16px;
+}
+.cs-next span { 
+    background-position: -41px 16px;
+}
+.cs-prev, 
+.cs-next{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#33fffefe,endColorstr=#33fffefe);
+    zoom: 1;
+}
+
+.cs-prev:hover,
+.cs-next:hover{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B32982a3,endColorstr=#B32982a3)!important;
+}
+
+
+.home-slider-conainer .bx-prev span,
+.home-slider-conainer .bx-next span,
+.block-related .bx-prev span,
+.block-related .bx-next span{
+    background:url(../images/more_views_arr.png) left top no-repeat;
+    width:100%;
+    height:100%;
+    display:block;
+}
+.home-slider-conainer .bx-prev span,
+.block-related .bx-prev span {   
+    background-position: 15px 13px;
+}
+.home-slider-conainer .bx-next span,
+.block-related .bx-next span { 
+    background-position: -56px 13px;
+}
+.home-slider-conainer .bx-prev,
+.home-slider-conainer .bx-next,
+.block-related .bx-prev,
+.block-related .bx-next{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+    zoom: 1;
+}
+
+.home-slider-conainer .bx-prev:hover,
+.home-slider-conainer .bx-next:hover,
+.block-related .bx-prev:hover,
+.block-related .bx-next:hover{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B32982a3,endColorstr=#B32982a3)!important;
+}
+
+
+
+.add-to-cart button.button > span{
+    background:transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#12000000,endColorstr=#12000000);
+    zoom: 1;
+}
+
+
+.nav-wide#nav ul.level0 > li > a > span{border-bottom:none; padding-bottom:11px;}
+.nav-wide#nav ul.level0 > li > a{border-bottom:none; background:url(../images/ie/ie_menu_border_bg.png) left bottom repeat-x;}
+
+#footer .footer-block{border:none;}
+#footer .footer-bottom-block{border:none; padding-top:11px; background:url(../images/ie/ie_menu_border_bg.png) left top repeat-x;}
+
+.product-view .product-shop .product-box{border:1px solid #000; border-left:none; border-right:none;}
+
+span.button span span span span span,
+button.button span span span span span{border-top:none; padding-top:4px; background:url(../images/ie/ie_button_top_border.png) left top repeat-x;}

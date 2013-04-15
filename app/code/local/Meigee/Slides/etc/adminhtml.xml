@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <meigee_slides translate="title" module="meigee_slides">
+            <title>Header Slider</title>
+            <sort_order>999</sort_order>
+            <action>adminhtml/slides</action>
+        </meigee_slides>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <meigee_slides translate="title" module="meigee_slides">
+                        <title>Slides</title>
+                        <sort_order>0</sort_order>
+                    </meigee_slides>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <headerslider>
+                                        <title>Slider Options</title>
+                                        <sort_order>1</sort_order>
+                                    </headerslider>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

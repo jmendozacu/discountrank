@@ -1,0 +1,110 @@
+/**
+ * Skin
+ */
+
+/*======Skin Images ======*/
+header#header .links li a{background-image:url(../images/top_links_icons.png);}
+.sorter .view-mode .grid span,
+.sorter .view-mode .list span{background-image:url(../images/view_icons.png);}
+.pager .pages li a.i-previous{background-image:url(../images/i_previous.png);}
+.pager .pages li a.i-next{background-image:url(../images/i_next.png);}
+.sorter .sort-by .asc{background-image:url(../images/i_asc.png);}
+.sorter .sort-by .desc{background-image:url(../images/i_desc.png);}
+#footer ul.social-links li a{background-image:url(../images/social_icons.png);}
+
+/*  Site Background */
+.site-wrapper	
+{
+    background-color:#fafafa;
+}
+
+/*======Skin Color #1=======*/
+a:hover,
+header#header .top-cart .block-content .to-cart,
+header#header .top-cart .product-name a:hover,
+.cart-empty,
+aside.sidebar section .block-content a:hover,
+aside.sidebar section .block-content .actions a,
+aside.sidebar section.block-wishlist li.item .product-details .product-name a:hover,
+.add-to-links li a,
+.add-to-links .separator,
+.ratings .rating-links a,
+.ratings .rating-links .separator,
+nav.breadcrumbs li strong,
+nav.breadcrumbs li a:hover{color:#810002;}
+
+body,
+span.button span span,
+button.button span span,
+.sidebar button.button:hover span,
+header#header .top-header-wrapper,
+#nav ul,
+#nav div,
+aside.sidebar section.even header,
+.opc .active .step-title,
+.cs-buttons a:hover,
+.cs-buttons a.cs-active,
+#footer .footer-wrapper-container,
+#footer .footer-wrapper,
+#nav,
+.meigee-tabs,
+#cart-accordion h3.accordion-title {background-color:#810002;}
+
+.sidebar button.button:hover span,
+.cs-title h2 > span {}
+
+.opc .step{border-top-color:#810002;}
+
+.product-view .product-prev:hover,
+.product-view .product-next:hover,
+.product-essential .product-image .bx-prev:hover,
+.product-essential .product-image .bx-next:hover,
+.block-related .bx-prev:hover,
+.block-related .bx-next:hover,
+.cs-prev:hover,
+.cs-next:hover,
+.home-slider-conainer .bx-prev:hover,
+.home-slider-conainer .bx-next:hover{
+    background-color: rgba(41, 130, 163, 0.7);
+}
+
+
+/*======Skin Color #2=======*/
+a,
+.product-name a,
+.price,
+header#header .welcome-msg,
+header#header .top-cart .block-title.active .title-cart-box a#cartHeader strong.amount,
+header#header .top-cart .block-title.active .title-cart-box a#cartHeader span.title-cart,
+header#header .top-cart .block-title.active .title-cart-box a#cartHeader .price,
+header#header .top-cart .block-content .cart-title,
+header#header .top-cart .block-content .to-cart:hover,
+header#header .top-cart .product-name a,
+header#header .top-cart .mini-products-list li,
+header#header .top-cart .mini-products-list .price,
+#footer .footer-top-blocks-wrapper h3,
+aside.sidebar section.block-wishlist li.item .product-details .product-name a,
+.tier-prices{color:#5d5d5d;}
+
+.sbOptions,
+aside.sidebar section header {background-color:#5d5d5d;}
+
+
+
+/*======Skin Color #3=======*/
+.sidebar button.button span,
+.opc .step-title,
+.cs-buttons .inner,
+.cms-home .main-container,
+.blocks-wrapper {background-color:#e2e2e2;}
+
+.sbOptions a:hover{color:#e2e2e2;}
+
+.meigee-tabs-content,
+.opc .step,
+.meigee-tabs li{border-color:#e2e2e2;}
+
+
+/**
+ * Skin
+ */

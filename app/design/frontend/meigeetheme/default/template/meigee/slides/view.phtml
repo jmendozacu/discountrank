@@ -1,0 +1,60 @@
+<?php 
+$sliderConfig = Mage::getStoreConfig('headerslider/coin');
+$show = 0;
+if ($sliderConfig ['enabled']):
+
+  /**/
+  if ($sliderConfig['onlyhome']):
+    if (Mage::getSingleton('cms/page')->getIdentifier() == 'home'  && Mage::app()->getFrontController()->getRequest()->getRouteName() == 'cms'):
+      $show = 1;
+    endif;
+  else:
+    $show = 1;
+  endif; 
+  /**/
+
+  if ($show): ?>
+  <div id="coin-slider">
+  <?php if (count ($this->getCollection()) == 0): ?>
+  <img src="<?php echo $this->getSkinUrl('images/coin_blank.gif'); ?>" alt="" />
+  <?php endif; ?>
+  <?php foreach ($this->getCollection() as $slide): ?>
+    
+        <?php if( $slide['link'] ) { ?>
+        	<a href="<?php echo $slide['link']?>" title="<?php echo strip_tags($slide->getName()); ?>">
+        <?php } ?>
+        <img src="<?php echo Mage::getBaseUrl('media') . 'meigee_slides/' . $slide['image'];?>" alt="" />
+        <?php if( $slide['name'] ) { ?><div class="slider-title"><?php echo $slide['name'] ?></div><?php } ?>
+        <?php if( $slide['link'] ) { ?>
+        	</a>
+        <?php } ?>
+    <?php endforeach ?>
+    </div>
+    
+    <script>
+    jQuery(window).load(function() {
+
+      /* Coin Slider */
+      if (jQuery('#coin-slider').length) {
+      	jQuery('#coin-slider').coinslider({
+      		width: <?php echo $sliderConfig ['width']; ?>, // width of slider panel
+    		height: <?php echo $sliderConfig ['height']; ?>, // height of slider panel
+    		spw: <?php echo $sliderConfig ['spw']; ?>, // squares per width
+    		sph: <?php echo $sliderConfig ['sph']; ?>, // squares per height
+    		delay: <?php echo $sliderConfig ['delay']; ?>, // delay between images in ms
+    		sDelay: <?php echo $sliderConfig ['sdelay']; ?>, // delay beetwen squares in ms
+    		opacity: <?php echo $sliderConfig ['opacity']; ?>, // opacity of title and navigation
+    		titleSpeed: <?php echo $sliderConfig ['titlespeed']; ?>, // speed of title appereance in ms
+    		effect: "<?php echo $sliderConfig ['effect']; ?>", // random, swirl, rain, straight
+    		navigation: <?php echo $sliderConfig ['navigation']; ?>, // prev next and buttons
+    		links : true, // show images as links
+    		hoverPause: <?php echo $sliderConfig ['hoverpause']; ?> // pause on hover
+    
+      	});
+      }	  
+    });
+    </script>
+
+    <?php 
+  endif;
+endif;

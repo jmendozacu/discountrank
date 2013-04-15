@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <default>
+        <reference name="head">
+            <!--Coin Slider-->
+            <action method="addItem" ifconfig="headerslider/coin/enabled"><type>skin_js</type><name>js/coin-slider.min.js</name><params/></action>
+        </reference>
+        <reference name="header">
+            <block type="meigee_slides/content" name="slides.all" />
+        </reference>
+    </default>
+
+</layout>

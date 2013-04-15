@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_slides_index>
+        <reference name="content">
+            <block type="meigee_slides/adminhtml_slides" name="slides.grid_container" />
+        </reference>
+    </adminhtml_slides_index>
+
+    <adminhtml_slides_new>
+        <update handle="adminhtml_slides_edit"/>
+    </adminhtml_slides_new>
+
+    <adminhtml_slides_edit>
+        <reference name="content">
+            <block type="meigee_slides/adminhtml_edit" name="slides.edit" />
+        </reference>
+    </adminhtml_slides_edit>
+</layout>

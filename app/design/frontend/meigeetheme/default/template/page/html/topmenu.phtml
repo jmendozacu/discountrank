@@ -1,0 +1,32 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     meigeetheme_default
+ * @copyright   Copyright (c) 2012 MeigeeTeam. (http://www.meigeeteam.com)
+ */
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Page_Block_Html_Topmenu
+ */
+?>
+<?php 
+	$_menu = $this->getHtml('level-top');
+	$routeName = Mage::app()->getRequest()->getRouteName();  
+	$identifier = Mage::getSingleton('cms/page')->getIdentifier();
+	
+	$menu = MAGE::helper('ThemeOptions')->getThemeOptions('menu'); 
+	$homeButton = MAGE::helper('ThemeOptions')->getThemeOptions('homeButton');
+?>
+<?php if($_menu): ?>
+<nav>
+    <ul class="<?php if ($menu == 'menu_wide') echo 'nav-wide' ?>" id="nav">
+    	<?php if ($homeButton == 1): ?><li class="homepage level-top <?php if($routeName == 'cms' && $identifier == 'home'): echo 'active'; endif; ?>"><a class="level-top" href="<?php echo $this->getUrl('') ?>"><span><?php echo $this->__('Home Page') ?></span></a></li><?php endif; ?>
+        <?php echo $_menu ?>
+    </ul>
+</nav>
+<?php endif ?>
